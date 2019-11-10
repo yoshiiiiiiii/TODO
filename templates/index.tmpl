@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>todo app on Gin WAF </title>
+</head>
+<body>
+    <h1> 予定一覧</h1>
+<form method="post" action="/new">
+    <p>予定<input type="text" name="plan" size="30" placeholder="予定を入力してください" ></p>
+    <p>内容<textarea name="detail" rows="4" cols="30"></textarea></p>
+    <p><input type="submit" value="Send"></p>
+</form>
+</div>{{.message}}</div>
+<div>{{.time}}の予定</div>
+<form method="post" action="/delete">
+
+<ul>
+    {{ range .plans }}
+        <li>予定：{{.Plan}}</li>
+        <li>内容：{{.Detail}}</li>
+        <div><a href="/delete/{{.ID}}">削除</a></div>
+    {{ end }}
+</ul>
+</form>
+</body>
+</html>
